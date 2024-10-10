@@ -1,0 +1,696 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>eje2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1112782e-d55d-80ff-961d-f51987b7228d" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/met_arnold_bocklin_1880.jpg" style="object-position:center 90.63%"/><h1 class="page-title">eje2</h1><p class="page-description"></p></header><div class="page-body"><hr id="1112782e-d55d-80ca-a895-c8fa6586297d"/><figure id="1112782e-d55d-80e3-a9c8-de7a63372a6c" class="image"><a href="image.png"><img style="width:575px" src="image.png"/></a></figure><figure id="1112782e-d55d-80b8-9366-c2f7e7ee4eed" class="image"><a href="image%201.png"><img style="width:560.8203125px" src="image%201.png"/></a></figure><p id="11b2782e-d55d-80e5-878b-cfd1e210b909" class="">
+</p><figure id="11b2782e-d55d-8014-8000-e4bb54c590d9" class="image"><a href="image%202.png"><img style="width:707.9817504882812px" src="image%202.png"/></a></figure><p id="11a2782e-d55d-801d-aa0e-d721316bc2f2" class="">Actores:<div class="indented"><p id="11a2782e-d55d-8040-ab46-dbec9b730613" class="">Empleado administrativo</p><p id="11a2782e-d55d-8083-b325-dc8e8490a63b" class="">Alumno</p><p id="11a2782e-d55d-8023-ab04-c86c8fe3eedc" class="">Servicio del banco</p></div></p><p id="11a2782e-d55d-801a-bcca-e0bfd3f5f5e5" class="">Casos De Uso:<div class="indented"><p id="11a2782e-d55d-80ad-87d7-ee882a65cec8" class="">CargarCarreras</p><p id="11a2782e-d55d-8061-a8c6-ec335237b0f2" class="">Registrarse</p><p id="11a2782e-d55d-8068-9b09-ed65f5400e4f" class="">Iniciar Sesion</p><p id="11a2782e-d55d-8077-a5f9-e3984e3597d8" class="">Cerrar Sesion</p><p id="11a2782e-d55d-8089-a5fb-ccba3dab4f02" class="">Incribirse</p><p id="11a2782e-d55d-80ac-a99b-c3aacb2b2be2" class="">Pagar con Tarjeta</p></div></p><p id="11a2782e-d55d-8061-b695-fc360758a8b3" class="">Diagrama</p><figure id="11a2782e-d55d-8079-b85f-db9259962d03" class="image"><a href="image%203.png"><img style="width:707.9817504882812px" src="image%203.png"/></a></figure><p id="11a2782e-d55d-80f9-8487-c073c9c54e3f" class="">
+</p><p id="1112782e-d55d-80df-b758-e41c86e14c83" class="">Nombre Del Caso de uso:<div class="indented"><p id="11a2782e-d55d-802b-a4e1-c643219aecec" class="">Cargar Carreras</p></div></p><p id="11a2782e-d55d-80cf-98fb-c8e4a933f5a5" class="">Descripcion:<div class="indented"><p id="11a2782e-d55d-8013-b911-fbf1c7e4d13e" class="">En este caso de uso se describe el evento en el que un empleado Administrativo carga las carreras al sistema</p></div></p><p id="11a2782e-d55d-800b-b6df-d773b041de2c" class="">Actores:<div class="indented"><p id="11a2782e-d55d-80b6-9714-c8503d6e2fc9" class="">Cargar Carreras</p></div></p><p id="11a2782e-d55d-80b4-b691-c3ce2b6abae8" class="">PreconDiciones:<div class="indented"><p id="11a2782e-d55d-8068-8bd9-f7e41b148b9e" class="">Null Pointer</p></div></p><table id="11a2782e-d55d-8006-8ebb-eb8bc39e8e83" class="simple-table"><tbody><tr id="de67823c-d2d0-457d-a2e5-28d124ed1f4f"><td id="m=Vs" class="">Curso Normal</td><td id=":wQ_" class="">Acciones del Actor</td><td id="hESv" class="">Acciones del sistema</td></tr><tr id="ad85d239-3ec3-4324-968a-ba2895a4c8fb"><td id="m=Vs" class=""></td><td id=":wQ_" class="">1: el empleado administrativo selecciona “cargar carrera”</td><td id="hESv" class="">2: el sistema le muestra un formulario con los campos: nombre, duracion en anhos, costo, cantidad maxima de cuotas para el pago</td></tr><tr id="1aba716d-444b-41a3-a071-c740d958f649"><td id="m=Vs" class=""></td><td id=":wQ_" class="">3: el el empleado administrativo, carga los datos y le da al boton de “cargar”</td><td id="hESv" class="">4: el sistema valida los datos</td></tr><tr id="11a2782e-d55d-8001-b07f-ddfaac9445ba"><td id="m=Vs" class=""></td><td id=":wQ_" class=""></td><td id="hESv" class="">5: el sistema valida que el nombre sea un nombre repetido</td></tr><tr id="11a2782e-d55d-809c-b09c-d73746fa127e"><td id="m=Vs" class=""></td><td id=":wQ_" class=""></td><td id="hESv" class="">6: el sistema valida que la duracion no sea mas de 5 anhos</td></tr><tr id="11a2782e-d55d-804c-bb7f-d310d23a8da7"><td id="m=Vs" class=""></td><td id=":wQ_" class=""></td><td id="hESv" class="">7: el sistema, carga en el sistema la carrera</td></tr></tbody></table><p id="11a2782e-d55d-803f-996a-da74dc2ffd85" class="">
+</p><p id="1112782e-d55d-80e4-809a-c9feffe32b57" class="">Curso Alterno:<div class="indented"><p id="11a2782e-d55d-808a-b7dd-d6e5926ac580" class="">paso 5 alterno: el sistema valida que se ingreso un nombre de carrera repetido, lo redirige al paso2</p><p id="11a2782e-d55d-801a-8d33-d3d9887016d1" class="">paso 6: el sistema valida que la duracion de la carrera es mas de 5 anhos, </p></div></p><p id="11a2782e-d55d-8094-860c-e6a74dea7ec1" class="">PostCondiciones:<div class="indented"><p id="11a2782e-d55d-80f6-ab86-d593521305be" class="">dado un empleado que tiene informacion de una nueva carrera, cargarla en el sistema</p></div></p><p id="11a2782e-d55d-80b3-9c6f-f259f1421d77" class="">
+</p><hr id="11a2782e-d55d-8094-bf15-f61e777305fe"/><p id="11a2782e-d55d-8012-8965-d6d394b7c20a" class="">Nombre de cu: Registrarse</p><p id="11a2782e-d55d-807a-8965-de82657334ff" class="">Descripcion: En este caso de uso se describe como un Alumno se registra en el sistema</p><p id="11a2782e-d55d-8035-af44-f161959ed9dd" class="">Actores:<div class="indented"><p id="11a2782e-d55d-8037-b84d-c7bdbe861ac6" class="">Alumno (No registrado)</p></div></p><p id="11a2782e-d55d-80b3-8a70-c05e47950018" class="">PreCondiciones:<div class="indented"><p id="11a2782e-d55d-809d-868b-c73611dff5af" class="">Null</p></div></p><table id="11a2782e-d55d-8045-90c0-eb21550cdbe6" class="simple-table"><tbody><tr id="20e8425e-4bf3-44d7-abbe-232186981de7"><td id="G@O@" class="">Curso Normal</td><td id="rg[W" class="">Acciones del actor</td><td id="uvTx" class="">Acciones del sistema</td></tr><tr id="3f37ea48-375d-4080-ac58-0e1a082b0169"><td id="G@O@" class=""></td><td id="rg[W" class="">1: el Alumno no registrado, selecciona “registrado”</td><td id="uvTx" class="">2: el sistema le muestra un formulario con los datos: nombre, apellido, nombreDeUsuario y contrasenha</td></tr><tr id="5ce377f1-e321-404f-962d-626fb0a9b0bf"><td id="G@O@" class=""></td><td id="rg[W" class="">3: el Alumno registrado, llena los datos</td><td id="uvTx" class="">4: el sistema valida que no haya otro usuario con el mismo nombre de usuario</td></tr><tr id="11a2782e-d55d-8041-8ebb-f2e6c01a1802"><td id="G@O@" class=""></td><td id="rg[W" class=""></td><td id="uvTx" class="">5: el sistema valida que haya ingresado una contrasenha de mas de 6 digitos</td></tr><tr id="11a2782e-d55d-8098-9925-ddb6c3cf3a8a"><td id="G@O@" class=""></td><td id="rg[W" class=""></td><td id="uvTx" class="">6: el sistema registra en el sistema al Alumno</td></tr></tbody></table><p id="11a2782e-d55d-8031-87ff-eba131f53c15" class="">Curso Alterno: <div class="indented"><p id="11a2782e-d55d-80dd-9337-c1a0b5c58a19" class="">paso alterno 4: ya existe un Alumno con el nombre de usuario ingresado, se informa y se lo redirige al paso 2</p><p id="11a2782e-d55d-80cd-bbdb-d47b0b98aaf6" class="">Paso alterno 5: el Alumno ingreso una contrasenha de menos de 6 digitos, se informa y se lo redigie al paso 2</p></div></p><p id="11a2782e-d55d-8027-ac09-ee8d87c98eab" class="">PostCondicion:<div class="indented"><p id="11a2782e-d55d-80f6-875d-ca115afefce5" class="">Que un alumno no registrado, quede registrado en el sistema</p><p id="11a2782e-d55d-802f-9089-ea774e540d55" class="">
+</p></div></p><hr id="11a2782e-d55d-8005-9e91-d7a215241c58"/><p id="11a2782e-d55d-809f-8475-f86f3d42bb1d" class="">
+</p><p id="11a2782e-d55d-8037-9997-df91a61de7e8" class="">Nombre de caso de uso: Iniciar Sesion</p><p id="11a2782e-d55d-8003-b51c-fee7a3c37678" class="">Descripcion: En este caso de uso se describe como un Alumno inicia sesion</p><p id="11a2782e-d55d-80b0-9e38-c33f0e49daaa" class="">Actores:<div class="indented"><p id="11a2782e-d55d-80cf-8e75-e5cb1a574669" class="">Alumno (Registrado)</p></div></p><p id="11a2782e-d55d-8001-9ba2-f59facdae710" class="">PreCondicion:<div class="indented"><p id="11a2782e-d55d-8017-98e9-eb1672e877dc" class="">nULL</p></div></p><table id="11a2782e-d55d-8004-bfdf-dd0eba63cda4" class="simple-table"><tbody><tr id="f14a3f9a-da70-4e06-af27-b790c93f95df"><td id="eNan" class="">Curso normal</td><td id="BN=v" class="">Acciones del actor</td><td id="k:HW" class="">Acciones del sistema</td></tr><tr id="858c1753-a1c4-4a32-b236-cbb532185b27"><td id="eNan" class=""></td><td id="BN=v" class="">1: el alumno (Registrado) selecciona “Iniciar Session”</td><td id="k:HW" class="">2: el sistema le muestra un formulario que tiene los campos: usuario, contrasenha</td></tr><tr id="8fa352ef-4e8d-429e-986e-4551e30d0262"><td id="eNan" class=""></td><td id="BN=v" class="">3: alumno (Registrado) ingresa los datos y le da al boton de “Iniciar”</td><td id="k:HW" class="">4: el sistema valida los datos </td></tr><tr id="11a2782e-d55d-8028-a6a5-fc5218c1fae4"><td id="eNan" class=""></td><td id="BN=v" class=""></td><td id="k:HW" class="">5: el sistema le inicia una sesion al Alumno y le habilita las funciones de un Alumno en el sistema</td></tr></tbody></table><p id="11a2782e-d55d-808b-aae5-cf490221836c" class="">
+</p><p id="11a2782e-d55d-80ee-8426-fc57c9ed5103" class="">Curso Alterno: <div class="indented"><p id="11a2782e-d55d-8076-83f8-d7f04b868a6a" class="">4: el sistema valida que la contrasenha o el usuario no son validos, se informa y retorna desde el paso 2</p></div></p><p id="11a2782e-d55d-80af-9a24-d52fdceb39db" class="">PostCondicion: <div class="indented"><p id="11a2782e-d55d-8044-adcc-cb33d2f5bcf7" class="">que un alumno registrado quede con una sesion activa</p></div></p><p id="11a2782e-d55d-8045-bbca-e0f371744562" class="">
+</p><hr id="11a2782e-d55d-80a5-bfe9-e791b532222f"/><p id="11a2782e-d55d-80ae-b969-f384375e44a1" class="">Nombre del caso de uso: Cerrar Sesion</p><p id="11a2782e-d55d-8048-a2e3-c30ed7d524cc" class="">Descripcion: En este caso de uso se describe como un alumno cierra sesion</p><p id="11a2782e-d55d-80a6-a6e0-e0bd50e2348d" class="">Actores:<div class="indented"><p id="11a2782e-d55d-8097-8ee9-d07688d4b590" class="">Alumno</p></div></p><p id="11a2782e-d55d-80e3-af00-c1e4d076c95d" class="">PreCondiciones:<div class="indented"><p id="11a2782e-d55d-8073-83e2-efffb56790a5" class="">el alumno debe tener una sesion iniciada</p></div></p><table id="11a2782e-d55d-806f-9d62-ed77c5bad18c" class="simple-table"><tbody><tr id="895df9dc-a90f-4776-b1be-1fcf16990cab"><td id="AU&gt;h" class="">Curso Normal</td><td id="ASsO" class="" style="width:134.515625px">Acciones del Actor</td><td id="`~rF" class="">Acciones del sistem</td></tr><tr id="eab34526-09e2-4595-9b8d-36376925bcf7"><td id="AU&gt;h" class=""></td><td id="ASsO" class="" style="width:134.515625px">1: el alumno slecciona “Cerrar Sesion”</td><td id="`~rF" class="">2: el sistema solicita una confirmacion del cierre de sesion</td></tr><tr id="b844cf16-8db9-4812-8f77-5103ca1524b7"><td id="AU&gt;h" class=""></td><td id="ASsO" class="" style="width:134.515625px">3: el alumno confirma el cierre de sesion</td><td id="`~rF" class="">4: el sistema registra el cierre de sesion y le quita las funciones de un alumno logueado</td></tr></tbody></table><p id="11a2782e-d55d-8018-9708-d6812acb9382" class="">Curso Alterno:<div class="indented"><p id="11a2782e-d55d-80ba-9553-e4552e1a4655" class="">3: el alumno no confirma el cierre de sesion. FIN de la CU</p></div></p><p id="11a2782e-d55d-80df-a677-d3ecb3b53110" class="">Post Condicion: <div class="indented"><p id="11a2782e-d55d-80e0-8ac2-fb96b63d8544" class="">La sesion ha sido cerrada, las opciones son deshabilitadas y se eliminan los datos de sesion.</p><p id="11a2782e-d55d-8098-a6c0-d3f1f9650709" class="">
+</p></div></p><hr id="11a2782e-d55d-8054-a330-e639424bd67f"/><p id="11a2782e-d55d-8037-bb23-c63bef084a99" class="">Nombre de la cu: Incribirse</p><p id="11a2782e-d55d-8090-867e-d1e64b87eaa7" class="">Descripcion: en esta cu, se describe como un alumno se inscribe a una carrera</p><p id="11a2782e-d55d-80a9-bf7a-caf84cd4595d" class="">Actores:<div class="indented"><p id="11a2782e-d55d-80bb-b39e-c60fd4c3477f" class="">Alumno</p></div></p><p id="11a2782e-d55d-80b6-927f-c43497d590bb" class="">PreCondiciones:<div class="indented"><p id="11a2782e-d55d-802c-b1e7-eccae537c6ac" class="">Alumno logueado</p></div></p><table id="11a2782e-d55d-80ff-8850-c630630c3bed" class="simple-table"><tbody><tr id="d8b4f729-3341-4a02-a73f-e4410e16da42"><td id="XW}@" class="">Curso Normal</td><td id="Kq&lt;@" class="">Acciones del Actor</td><td id="zzHB" class="">Acciones del sistema</td></tr><tr id="fd409004-59c4-4bd9-8fc0-500b40524e5f"><td id="XW}@" class=""></td><td id="Kq&lt;@" class="">1: el alumno selecciona “incribirse”</td><td id="zzHB" class="">2: el sistema le muestra una lista de carreras</td></tr><tr id="77c0b1bc-5377-4430-b62a-914ee9d7f9e4"><td id="XW}@" class=""></td><td id="Kq&lt;@" class="">3: el alumno selecciona una carrera</td><td id="zzHB" class="">4: el sistema ejecuta la cu de “pagar con tarjeta”</td></tr><tr id="11a2782e-d55d-804e-8da5-d4df14070ced"><td id="XW}@" class=""></td><td id="Kq&lt;@" class=""></td><td id="zzHB" class="">5: el sistema imprime un comprobante de inscripcion y otro de pago</td></tr><tr id="11a2782e-d55d-8030-98d0-cf79f33b31c9"><td id="XW}@" class=""></td><td id="Kq&lt;@" class=""></td><td id="zzHB" class="">6: el sistema regstra la inscripcion del alumno</td></tr></tbody></table><p id="11a2782e-d55d-803a-b338-e2920359d3da" class="">Curso Alterno:<div class="indented"><p id="11a2782e-d55d-8075-86cf-d9623c3e45e3" class="">4: falla la CU de “pagar con tarjeta”, se cancela la inscripcion, FIN DE LA CU</p></div></p><p id="11a2782e-d55d-805c-9558-cf494505e815" class="">PostCondiciones:<div class="indented"><p id="11a2782e-d55d-80db-8993-d378cf10c0e4" class="">Que un alumno quede inscripto en la carrera seleccionada</p></div></p><p id="11a2782e-d55d-80b1-89cc-d5af293b5f8b" class="">
+</p><hr id="11a2782e-d55d-80d4-8e90-db1e9737d932"/><p id="11a2782e-d55d-8037-9d0b-d6c0d79ae3a2" class="">nombre de la cu: Pagar con Tarjeta</p><p id="11b2782e-d55d-80c5-bec0-d6c2daf8b9f6" class="">Descripcion: en esta Cu se describe como un Alumno realiza el pago</p><p id="11b2782e-d55d-8017-b8f7-ec6fd8b2dd2d" class="">Actores:<div class="indented"><p id="11b2782e-d55d-80b9-a9d4-dc1b96b80651" class="">Alumno, Servicio de Banco</p></div></p><p id="11b2782e-d55d-80a5-97e9-e13c2eeadf4a" class="">PreCondiciones:<div class="indented"><p id="11b2782e-d55d-8066-b4b6-d7ab87e617d7" class="">Que se haya ejecutado anteriormente la CU de “Inscribirse”</p></div></p><p id="11b2782e-d55d-80c2-a549-ea9042b16ca5" class="">
+</p><table id="11b2782e-d55d-80fc-aef1-dd26d6a8c695" class="simple-table"><tbody><tr id="cf562195-5079-4f96-a759-0fd5cb028580"><td id=":t~&gt;" class="">Curso Normal</td><td id="\XKU" class="">Acciones del Actor</td><td id="OO;|" class="">Acciones del sistema</td></tr><tr id="3c8dbd06-c9ea-47ab-8507-6e469a3a4551"><td id=":t~&gt;" class=""></td><td id="\XKU" class="">2: el Alumno, ingresa la cantidad de cuotas a pagar, el nro de tarjeta y le da al boton de “confirmar”</td><td id="OO;|" class="">1: el sistema le solicita la cantidad de cuotas a pagar y el nro de tarjeta</td></tr><tr id="ab397a27-6688-4e40-a752-7a895dbd6847"><td id=":t~&gt;" class=""></td><td id="\XKU" class="">4: el servicio del banco acepta la conexion con el sistema y le pide el nro de tarjeta </td><td id="OO;|" class="">3: el sistema solicita conexion con el servicio del banco</td></tr><tr id="11b2782e-d55d-801b-98d7-c2d5f53b1fc4"><td id=":t~&gt;" class=""></td><td id="\XKU" class="">6: el sistema valida que la tarjeta sea valida y tenga fondos</td><td id="OO;|" class="">5: el sistema, le envia el nro de tarjeta</td></tr><tr id="11b2782e-d55d-809a-8729-fb0058f18a5c"><td id=":t~&gt;" class=""></td><td id="\XKU" class="">7: el servicio del banco le retorna el resultado</td><td id="OO;|" class="">8: el sistema recibe que la tarjeta es valida</td></tr><tr id="11b2782e-d55d-8019-bb8b-db51460ac2b7"><td id=":t~&gt;" class=""></td><td id="\XKU" class=""></td><td id="OO;|" class="">9: el sistema recibe que la tarjeta cuenta con fondos</td></tr><tr id="11b2782e-d55d-8079-a9f2-dec582d6adc4"><td id=":t~&gt;" class=""></td><td id="\XKU" class=""></td><td id="OO;|" class="">10: el sistema registra el pago y cierra conexion con el sistema del banco</td></tr><tr id="11b2782e-d55d-8038-b156-ceffbfd1e566"><td id=":t~&gt;" class=""></td><td id="\XKU" class=""></td><td id="OO;|" class="">11: el sistema imprime 1 comprobante de inscripcion y otro de pago</td></tr></tbody></table><p id="11b2782e-d55d-8018-a48a-f62a15eb636a" class="">Curso Alterno: <div class="indented"><p id="11b2782e-d55d-80d0-b308-e036233600ae" class="">paso 3: fallo en la conexion con el sistema del servicio del banco</p><p id="11b2782e-d55d-809a-96b5-d1dec74376cf" class="">paso8 alterno: el sistema recibe la que tarjeta es invalda. Termina la CU</p><p id="11b2782e-d55d-80c2-be4f-d5e501049faf" class="">Paso 9 alterno: el sistema recibe que la tarjeta no tiene fondos suficientes. Termina la CU</p></div></p><p id="11b2782e-d55d-8049-888b-fc65b4204946" class="">PostCondiciones:<div class="indented"><p id="11b2782e-d55d-8068-864a-f676792a976b" class="">Se efectuo y realizo el pago a travez de la tarjeta</p></div></p><p id="11b2782e-d55d-800c-9c8f-ff3892f74459" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
